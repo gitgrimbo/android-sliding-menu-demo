@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout android:id="@+id/menu" android:layout_width="match_parent" android:layout_height="fill_parent"
+        android:orientation="vertical" android:background="#ffff0000">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_horizontal"
+            android:textSize="26sp" android:text="Menu" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_horizontal"
+            android:textSize="26sp" android:text="Menu" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_horizontal"
+            android:textSize="26sp" android:text="Menu" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_horizontal"
+            android:textSize="26sp" android:text="Menu" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_horizontal"
+            android:textSize="26sp" android:text="Menu" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_horizontal"
+            android:textSize="26sp" android:text="Menu" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_horizontal"
+            android:textSize="26sp" android:text="Menu" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_horizontal"
+            android:textSize="26sp" android:text="Menu" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/app" android:layout_width="match_parent" android:layout_height="fill_parent"
+        android:orientation="vertical" android:background="#ffffffff">
+        <Button android:id="@+id/BtnSlide" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Slide" />
+        <ListView android:id="@+id/list" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:background="#ff00ff00" android:cacheColorHint="#ff00ff00">
+        </ListView>
+    </LinearLayout>
+</FrameLayout>

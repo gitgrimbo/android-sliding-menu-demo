@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/app"
+    android:layout_width="1dp" android:layout_height="1dp" android:orientation="vertical" android:background="#ffffffff"
+    android:padding="2px" android:layout_margin="2px">
+    <LinearLayout android:id="@+id/tabBar" android:layout_width="fill_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView android:id="@+id/BtnSlide" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:padding="0px" android:layout_margin="0px" android:src="@drawable/ic_launcher" />
+        <TextView android:text="&lt;- Press icon" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <ListView android:id="@+id/list" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="#ff00ff00" android:cacheColorHint="#ff00ff00">
+    </ListView>
+</LinearLayout>

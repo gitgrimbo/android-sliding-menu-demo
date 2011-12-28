@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:background="#00ffffff" android:padding="0px" android:layout_margin="0px">
+
+    <!-- This ImageView is used as a menu -->
+    <ImageView android:id="@+id/menu" android:src="@drawable/fb_menu" android:layout_width="fill_parent"
+        android:layout_height="fill_parent" android:scaleType="fitStart" />
+
+    <!--
+    This HorizontalScrollView will contain a LinearLayout that will contain a transparent
+    View (that allows the menu above to show through) and the other application Views.
+    -->
+    <grimbo.android.demo.slidingmenu.MyHorizontalScrollView android:id="@+id/myScrollView"
+        android:layout_width="fill_parent" android:layout_height="fill_parent" android:background="#00ffffff" android:padding="0px"
+        android:layout_margin="0px" android:fadingEdge="none" android:fadingEdgeLength="0px" android:scrollbars="none">
+
+        <LinearLayout android:id="@+id/top" android:layout_height="fill_parent" android:layout_width="fill_parent"
+            android:orientation="horizontal" android:background="#00ffffff" android:padding="0px" android:layout_margin="0px">
+        <!-- The views inside here will be added programmatically. -->
+        </LinearLayout>
+
+    </grimbo.android.demo.slidingmenu.MyHorizontalScrollView>
+
+</FrameLayout>

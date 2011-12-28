@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grimbo.android.demo.slidingmenu.MyHorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent" android:layout_height="fill_parent" android:background="#00ffffff" android:padding="0px"
+    android:layout_margin="0px" android:fadingEdge="none" android:fadingEdgeLength="0px" android:scrollbars="none">
+    <LinearLayout android:id="@+id/top" android:layout_height="fill_parent" android:layout_width="fill_parent"
+        android:orientation="horizontal" android:background="#ffffffff" android:padding="0px" android:layout_margin="0px">
+    </LinearLayout>
+</grimbo.android.demo.slidingmenu.MyHorizontalScrollView>

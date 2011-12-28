@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical"
+    android:layout_width="fill_parent" android:layout_height="fill_parent">
+    <Button android:id="@+id/BtnSlide" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Slide" />
+    <RelativeLayout android:id="@+id/ParentLayout" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:id="@+id/Layout1" android:orientation="vertical" android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:background="@android:color/black">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Text1"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/Layout2" android:orientation="vertical" android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:background="@android:color/white" android:layout_toRightOf="@id/Layout1">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Text2"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
