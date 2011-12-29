@@ -39,7 +39,7 @@ public class MenuActivity extends Activity {
                         Class c = Class.forName(packageName + "." + text);
                         startActivity(new Intent(context, c));
                     } catch (ClassNotFoundException e) {
-                        Toast.makeText(context, String.valueOf(e), 5000);
+                        Toast.makeText(context, String.valueOf(e), 5000).show();
                     }
                 }
             });

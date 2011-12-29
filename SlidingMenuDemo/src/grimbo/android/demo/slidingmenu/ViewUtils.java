@@ -6,6 +6,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 /**
  * Utility methods for Views.
@@ -47,7 +48,10 @@ public class ViewUtils {
         listView.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                System.out.println("item[" + position + "]=" + parent.getItemAtPosition(position));
+                Context context = view.getContext();
+                String msg = "item[" + position + "]=" + parent.getItemAtPosition(position);
+                Toast.makeText(context, msg, 1000).show();
+                System.out.println(msg);
             }
         });
     }
