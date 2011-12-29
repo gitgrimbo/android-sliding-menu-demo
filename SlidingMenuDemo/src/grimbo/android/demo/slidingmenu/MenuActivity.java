@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 /**
  * Simple Activity that uses each Button in the layout to invoke an Activity.
@@ -38,7 +39,7 @@ public class MenuActivity extends Activity {
                         Class c = Class.forName(packageName + "." + text);
                         startActivity(new Intent(context, c));
                     } catch (ClassNotFoundException e) {
-                        throw new RuntimeException(e);
+                        Toast.makeText(context, String.valueOf(e), 5000);
                     }
                 }
             });

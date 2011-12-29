@@ -32,10 +32,19 @@ public class MyHorizontalScrollView extends HorizontalScrollView {
     }
 
     void init(Context context) {
+        // remove the fading as the HSV looks better without it
         setHorizontalFadingEdgeEnabled(false);
         setVerticalFadingEdgeEnabled(false);
     }
 
+    /**
+     * @param children
+     *            The child Views to add to parent.
+     * @param scrollToViewIdx
+     *            The index of the View to scroll to after initialisation.
+     * @param sizeCallback
+     *            A SizeCallback to interact with the HSV.
+     */
     public void initViews(View[] children, int scrollToViewIdx, SizeCallback sizeCallback) {
         // A ViewGroup MUST be the only child of the HSV
         ViewGroup parent = (ViewGroup) getChildAt(0);
@@ -47,20 +56,27 @@ public class MyHorizontalScrollView extends HorizontalScrollView {
         }
 
         // Add a layout listener to this HSV
+        // This listener is responsible for arranging the child views.
         OnGlobalLayoutListener listener = new MyOnGlobalLayoutListener(parent, children, scrollToViewIdx, sizeCallback);
         getViewTreeObserver().addOnGlobalLayoutListener(listener);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
+        // Do not allow touch events.
         return false;
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
+        // Do not allow touch events.
         return false;
     }
 
+    /**
+     * An OnGlobalLayoutListener impl that passes on the call to onGlobalLayout to a SizeCallback, before removing all the Views
+     * in the HSV and adding them again with calculated widths and heights.
+     */
     class MyOnGlobalLayoutListener implements OnGlobalLayoutListener {
         ViewGroup parent;
         View[] children;
@@ -68,6 +84,16 @@ public class MyHorizontalScrollView extends HorizontalScrollView {
         int scrollToViewPos = 0;
         SizeCallback sizeCallback;
 
+        /**
+         * @param parent
+         *            The parent to which the child Views should be added.
+         * @param children
+         *            The child Views to add to parent.
+         * @param scrollToViewIdx
+         *            The index of the View to scroll to after initialisation.
+         * @param sizeCallback
+         *            A SizeCallback to interact with the HSV.
+         */
         public MyOnGlobalLayoutListener(ViewGroup parent, View[] children, int scrollToViewIdx, SizeCallback sizeCallback) {
             this.parent = parent;
             this.children = children;
@@ -84,6 +110,8 @@ public class MyHorizontalScrollView extends HorizontalScrollView {
             // The listener will remove itself as a layout listener to the HSV
             me.getViewTreeObserver().removeGlobalOnLayoutListener(this);
 
+            // Allow the SizeCallback to 'see' the Views before we remove them and re-add them.
+            // This lets the SizeCallback prepare View sizes, ahead of calls to SizeCallback.getViewSize().
             sizeCallback.onGlobalLayout();
 
             parent.removeViewsInLayout(0, children.length);
@@ -93,8 +121,7 @@ public class MyHorizontalScrollView extends HorizontalScrollView {
 
             // System.out.println("w=" + w + ", h=" + h);
 
-            // Each child will be added full width
-            // TODO - Can/should we be able to pass width/height in?
+            // Add each view in turn, and apply the width and height returned by the SizeCallback.
             int[] dims = new int[2];
             scrollToViewPos = 0;
             for (int i = 0; i < children.length; i++) {
@@ -119,7 +146,7 @@ public class MyHorizontalScrollView extends HorizontalScrollView {
     }
 
     /**
-     * 
+     * Callback interface to interact with the HSV.
      */
     public interface SizeCallback {
         /**
