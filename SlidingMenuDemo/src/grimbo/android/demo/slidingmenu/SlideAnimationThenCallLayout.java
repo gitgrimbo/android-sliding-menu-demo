@@ -13,9 +13,8 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ListView;
 
 /**
- * This demo flickers when the call to app.layout() is made.
+ * Removed the flicker
  * 
- * Not sure how to remove this flicker.
  */
 public class SlideAnimationThenCallLayout extends Activity implements AnimationListener {
     View menu;
@@ -48,6 +47,9 @@ public class SlideAnimationThenCallLayout extends Activity implements AnimationL
 
             anim.setDuration(500);
             anim.setAnimationListener(me);
+            //Tell the animation to stay as it ended (we are going to set the app.layout first than remove this property)
+            anim.setFillAfter(true);
+
 
             // Only use fillEnabled and fillAfter if we don't call layout ourselves.
             // We need to do the layout ourselves and not use fillEnabled and fillAfter because when the anim is finished
@@ -82,6 +84,9 @@ public class SlideAnimationThenCallLayout extends Activity implements AnimationL
         System.out.println("layout [" + animParams.left + "," + animParams.top + "," + animParams.right + ","
                 + animParams.bottom + "]");
         app.layout(animParams.left, animParams.top, animParams.right, animParams.bottom);
+        //Now that we've set the app.layout property we can clear the animation, flicker avoided :)
+        app.clearAnimation();
+
     }
 
     @Override
